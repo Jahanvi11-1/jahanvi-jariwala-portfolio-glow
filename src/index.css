@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 262 83% 58%;
+    --primary: 215 52% 55%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 262 83% 47%;
+    --secondary: 215 52% 45%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 149 16% 88%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 149 16% 85%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,9 +33,39 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 262 83% 58%;
+    --ring: 215 52% 55%;
 
     --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 215 52% 55%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 215 52% 45%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 215 52% 55%;
   }
 
   * {
@@ -53,32 +83,42 @@
 }
 
 .gradient-bg {
-  @apply bg-gradient-soft;
+  @apply bg-gradient-soft dark:bg-gradient-skyblue;
 }
 
 .section-heading {
-  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block text-portfolio-dark;
+  @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block text-portfolio-dark dark:text-white;
 }
 
 .section-heading::after {
   content: '';
-  @apply absolute bottom-0 left-1/4 right-1/4 h-1 bg-portfolio-primary rounded-full;
+  @apply absolute bottom-0 left-1/4 right-1/4 h-1 bg-portfolio-skyblue dark:bg-portfolio-accent rounded-full;
 }
 
 .btn-primary {
-  @apply bg-portfolio-primary text-white px-6 py-2 rounded-xl hover:bg-portfolio-secondary transition-colors duration-300 inline-flex items-center gap-2 shadow-md hover:shadow-lg;
+  @apply bg-portfolio-skyblue text-white px-6 py-2 rounded-xl hover:bg-portfolio-darkBlue transition-colors duration-300 inline-flex items-center gap-2 shadow-md hover:shadow-lg dark:bg-portfolio-accent dark:text-portfolio-dark dark:hover:bg-portfolio-mint/80;
 }
 
 .skill-card {
-  @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-portfolio-primary/20;
+  @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-portfolio-skyblue/20 dark:bg-portfolio-dark dark:border-portfolio-skyblue/20 dark:hover:border-portfolio-accent;
 }
 
 .project-card {
-  @apply rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:scale-[1.02];
+  @apply rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:scale-[1.02] dark:bg-portfolio-dark/80;
 }
 
 .glass-effect {
-  @apply backdrop-blur-md bg-white/80 shadow-lg border border-white/50;
+  @apply backdrop-blur-md bg-white/80 shadow-lg border border-white/50 dark:bg-portfolio-dark/80 dark:border-portfolio-skyblue/20;
+}
+
+/* Light mode specific */
+.light-mode-gradient {
+  @apply bg-gradient-soft;
+}
+
+/* Dark mode specific */
+.dark-mode-gradient {
+  @apply bg-gradient-skyblue;
 }
 
 /* Custom scrollbar */
@@ -87,9 +127,9 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 rounded-full;
+  @apply bg-gray-100 dark:bg-gray-800 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-portfolio-primary/50 rounded-full hover:bg-portfolio-primary;
+  @apply bg-portfolio-skyblue/50 rounded-full hover:bg-portfolio-skyblue dark:bg-portfolio-accent/50 dark:hover:bg-portfolio-accent;
 }

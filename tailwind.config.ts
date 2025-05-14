@@ -57,15 +57,15 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				portfolio: {
-					primary: '#8B5CF6',
-					secondary: '#6D28D9',
-					accent: '#D3E4FD',
-					light: '#F1F0FB',
+					primary: '#607ebc',
+					secondary: '#4a6a9f',
+					accent: '#d1e0d7',
+					light: '#f7f9f8',
 					dark: '#1A1F2C',
-					peach: '#FDE1D3',
-					mint: '#F2FCE2',
-					lavender: '#E5DEFF',
-					skyblue: '#D3E4FD'
+					mint: '#d1e0d7',
+					skyblue: '#607ebc',
+					lightBlue: '#8ea3cb',
+					darkBlue: '#3d5a98'
 				}
 			},
 			borderRadius: {
@@ -109,9 +109,9 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-cosmic': 'linear-gradient(180deg, #8B5CF6 0%, #6D28D9 100%)',
-				'gradient-soft': 'linear-gradient(to right, #accbee 0%, #e7f0fd 100%)',
-				'gradient-peach': 'linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)'
+				'gradient-cosmic': 'linear-gradient(180deg, #607ebc 0%, #3d5a98 100%)',
+				'gradient-soft': 'linear-gradient(to right, #d1e0d7 0%, #f7f9f8 100%)',
+				'gradient-skyblue': 'linear-gradient(to right, #607ebc 0%, #8ea3cb 100%)'
 			}
 		}
 	},

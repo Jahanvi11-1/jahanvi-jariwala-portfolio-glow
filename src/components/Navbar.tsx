@@ -1,31 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   const navLinks = [
+    { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
@@ -35,63 +20,63 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'glass-effect py-2'
-          : 'bg-transparent py-4'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold bg-gradient-to-r from-portfolio-primary to-portfolio-secondary bg-clip-text text-transparent">
-          Jahanvi Jariwala
-        </a>
-        
-        {/* Mobile menu button */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-portfolio-dark focus:outline-none"
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-        
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <a
+    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-portfolio-dark/80 shadow-sm">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <div className="flex justify-between items-center h-16">
+          <a href="#" className="text-xl font-bold text-portfolio-skyblue dark:text-portfolio-accent">
+            Jahanvi Jariwala
+          </a>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-4 items-center">
+            {navLinks.map((link) => (
+              <a 
+                key={link.name}
                 href={link.href}
-                className="text-gray-700 hover:text-portfolio-primary font-medium transition-colors duration-300 relative group"
-              >
-                {link.name}
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-portfolio-primary transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      
-      {/* Mobile Navigation */}
-      <div
-        className={`md:hidden absolute w-full glass-effect transition-all duration-300 ${
-          isMenuOpen ? 'max-h-96' : 'max-h-0 overflow-hidden'
-        }`}
-      >
-        <ul className="flex flex-col p-4 space-y-4">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                className="text-gray-700 hover:text-portfolio-primary font-medium block py-2"
-                onClick={toggleMenu}
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-portfolio-skyblue transition-colors dark:text-gray-300 dark:hover:text-portfolio-accent"
               >
                 {link.name}
               </a>
-            </li>
-          ))}
-        </ul>
+            ))}
+            <ThemeToggle />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden items-center space-x-2">
+            <ThemeToggle />
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-md text-gray-700 hover:text-portfolio-skyblue focus:outline-none dark:text-gray-300 dark:hover:text-portfolio-accent"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden glass-effect">
+          <div className="px-4 pt-2 pb-4 space-y-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-portfolio-skyblue rounded-md dark:text-gray-300 dark:hover:text-portfolio-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
