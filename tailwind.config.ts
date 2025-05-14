@@ -57,11 +57,15 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				portfolio: {
-					primary: '#9b87f5',
-					secondary: '#7E69AB',
+					primary: '#8B5CF6',
+					secondary: '#6D28D9',
 					accent: '#D3E4FD',
 					light: '#F1F0FB',
-					dark: '#333'
+					dark: '#1A1F2C',
+					peach: '#FDE1D3',
+					mint: '#F2FCE2',
+					lavender: '#E5DEFF',
+					skyblue: '#D3E4FD'
 				}
 			},
 			borderRadius: {
@@ -85,13 +89,29 @@ export default {
 				slideIn: {
 					'0%': { transform: 'translateX(-100%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				pulse: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				fadeIn: 'fadeIn 0.5s ease-out forwards',
-				slideIn: 'slideIn 0.5s ease-out forwards'
+				slideIn: 'slideIn 0.5s ease-out forwards',
+				pulse: 'pulse 3s ease-in-out infinite',
+				float: 'float 6s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-cosmic': 'linear-gradient(180deg, #8B5CF6 0%, #6D28D9 100%)',
+				'gradient-soft': 'linear-gradient(to right, #accbee 0%, #e7f0fd 100%)',
+				'gradient-peach': 'linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%)'
 			}
 		}
 	},

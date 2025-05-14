@@ -31,9 +31,9 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="section-container bg-gray-50">
-      <div className="flex items-center gap-2 mb-8 justify-center">
-        <Briefcase size={24} className="text-portfolio-primary" />
+    <section id="projects" className="section-container bg-gradient-to-br from-white to-portfolio-mint/30">
+      <div className="flex items-center gap-2 mb-12 justify-center">
+        <Briefcase size={28} className="text-portfolio-primary" />
         <h2 className="section-heading text-center">Projects</h2>
       </div>
       
@@ -47,31 +47,31 @@ const Projects = () => {
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-portfolio-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="p-6">
                   <a 
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-white flex items-center gap-1 text-sm"
+                    className="text-white flex items-center gap-2 text-sm font-medium"
                   >
-                    View Project <ExternalLink size={14} />
+                    View Project <ExternalLink size={16} />
                   </a>
                 </div>
               </div>
             </div>
             
-            <div className="p-4">
-              <div className="text-sm text-portfolio-secondary font-medium mb-1">{project.role}</div>
-              <h3 className="text-lg font-semibold text-portfolio-dark mb-2">{project.title}</h3>
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">{project.description}</p>
+            <div className="p-6">
+              <div className="text-sm text-portfolio-primary font-medium mb-1">{project.role}</div>
+              <h3 className="text-lg font-semibold text-portfolio-dark mb-3">{project.title}</h3>
+              <p className="text-gray-600 text-sm mb-5 line-clamp-3">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, techIndex) => (
                   <span 
                     key={techIndex} 
-                    className="bg-portfolio-accent/50 text-portfolio-dark text-xs px-2 py-1 rounded"
+                    className="bg-portfolio-lavender text-portfolio-secondary text-xs px-3 py-1 rounded-full"
                   >
                     {tech}
                   </span>

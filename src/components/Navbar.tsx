@@ -38,12 +38,12 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-md py-2'
+          ? 'glass-effect py-2'
           : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 md:px-8 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold text-portfolio-primary">
+        <a href="#" className="text-xl font-bold bg-gradient-to-r from-portfolio-primary to-portfolio-secondary bg-clip-text text-transparent">
           Jahanvi Jariwala
         </a>
         
@@ -62,9 +62,10 @@ const Navbar = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-gray-700 hover:text-portfolio-primary font-medium transition-colors duration-300"
+                className="text-gray-700 hover:text-portfolio-primary font-medium transition-colors duration-300 relative group"
               >
                 {link.name}
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-portfolio-primary transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
               </a>
             </li>
           ))}
@@ -73,7 +74,7 @@ const Navbar = () => {
       
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ${
+        className={`md:hidden absolute w-full glass-effect transition-all duration-300 ${
           isMenuOpen ? 'max-h-96' : 'max-h-0 overflow-hidden'
         }`}
       >

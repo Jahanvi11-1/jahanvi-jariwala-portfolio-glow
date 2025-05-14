@@ -16,11 +16,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 262 83% 58%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 262 83% 47%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -33,9 +33,9 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 262 83% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   * {
@@ -49,11 +49,11 @@
 }
 
 .section-container {
-  @apply max-w-6xl mx-auto px-4 md:px-8 py-16;
+  @apply max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24;
 }
 
 .gradient-bg {
-  @apply bg-gradient-to-br from-portfolio-light via-white to-portfolio-accent;
+  @apply bg-gradient-soft;
 }
 
 .section-heading {
@@ -66,13 +66,30 @@
 }
 
 .btn-primary {
-  @apply bg-portfolio-primary text-white px-6 py-2 rounded-md hover:bg-portfolio-secondary transition-colors duration-300 inline-flex items-center gap-2;
+  @apply bg-portfolio-primary text-white px-6 py-2 rounded-xl hover:bg-portfolio-secondary transition-colors duration-300 inline-flex items-center gap-2 shadow-md hover:shadow-lg;
 }
 
 .skill-card {
-  @apply p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100;
+  @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-portfolio-primary/20;
 }
 
 .project-card {
-  @apply rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white;
+  @apply rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white hover:scale-[1.02];
+}
+
+.glass-effect {
+  @apply backdrop-blur-md bg-white/80 shadow-lg border border-white/50;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-portfolio-primary/50 rounded-full hover:bg-portfolio-primary;
 }
