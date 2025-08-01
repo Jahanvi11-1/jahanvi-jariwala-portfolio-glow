@@ -1,8 +1,11 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-portfolio-dark text-white py-8">
+
+  return (
+    <footer className="bg-portfolio-dark text-white py-8">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
@@ -31,6 +34,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

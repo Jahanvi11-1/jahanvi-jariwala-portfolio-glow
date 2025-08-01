@@ -1,7 +1,9 @@
 import React from 'react';
 import { Mail, Phone, Linkedin, Github, ExternalLink } from 'lucide-react';
+
 const Contact = () => {
-  return <section id="contact" className="section-container bg-gray-50">
+  return (
+    <section id="contact" className="section-container bg-gray-50">
       <div className="flex items-center gap-2 mb-8 justify-center">
         <Mail size={24} className="text-portfolio-primary" />
         <h2 className="section-heading text-center text-slate-700">Contact</h2>
@@ -97,6 +99,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Contact;

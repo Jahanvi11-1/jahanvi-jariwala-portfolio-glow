@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, ExternalLink } from 'lucide-react';
 

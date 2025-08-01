@@ -1,7 +1,9 @@
 import React from 'react';
 import { BookOpen } from 'lucide-react';
+
 const Education = () => {
-  return <section id="education" className="section-container bg-gray-50">
+  return (
+    <section id="education" className="section-container bg-gray-50">
       <div className="flex items-center gap-2 mb-8 justify-center">
         <BookOpen size={24} className="text-portfolio-primary" />
         <h2 className="section-heading text-center text-slate-700">Education</h2>
@@ -83,6 +85,8 @@ const Education = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Education;
